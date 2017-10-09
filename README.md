@@ -1,6 +1,6 @@
 # spark 历史
 
-## MapReduce 基本实现
+## MapReduce原理
 ![](/assets/mapreduce.jpg)                    
 首先，我们一起回顾一下MapReduce的实现原理，上图是WordCount的MR实现原理，图中大致流程可分为：
 **Map阶段**
