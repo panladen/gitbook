@@ -16,8 +16,8 @@ stage的划分是Spark作业调度的关键一步，它基于DAG确定依赖关�
 * 宽依赖: 父RDD的一个分区会被子RDD的多个分区使用，比如groupByKey、join
 
 ### 2.2 stage分类 （来自网络）
-* ShuffleMapTask，shuffle之前是一个stage，shuffle之后的操作是另一个stage
-* resultTask，RDD的action中并不需要shuffle，直接输出（show,foreach）创建stage
+* **ShuffleMapStage**，shuffle之前是一个stage，shuffle之后的操作是另一个stage
+* **ResultStage**，RDD的action中并不需要shuffle，直接输出（show,foreach）创建stage
 
 ## 3. Task
 A unit of work that will be sent to one executor.
