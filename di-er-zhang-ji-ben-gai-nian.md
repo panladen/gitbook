@@ -8,14 +8,15 @@ public static void main(String[] args) throws IOException {
                 .getOrCreate();
         RDD lines = sparkSession.sparkContext().textFile("src\\main\\resources\\data.txt",1);
         
-        lines.toJavaRDD().mapToPair((PairFunction) line -> {
+        lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
             if(line == null) return null;
+            List<Tuple2> result = new ArrayList<>();
             String lineStr = String.valueOf(line);
             String[] words = lineStr.split(" ");
             for(String word : words){
-                return new Tuple2(word,1);
+                result.add(new Tuple2(word,1));
             }
-            return null;
+            return result.iterator();
         }).reduceByKey((Function2) (v1, v2) -> {
             Integer c1 = (Integer) v1;
             Integer c2 = (Integer) v2;
