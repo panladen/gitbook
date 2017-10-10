@@ -15,11 +15,8 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 4) 接收Executor的处理结果，比如rdd的```collect()```
 * **_Cluster Manager_**: 集群资源管理器，如YARN,Mesos等。
 * **_Executor_**: Spark负责运行spark应用的task的JVM进程。
+
 > **注：** 如果executor返回的数据结果超过driver机器可申请的最大内存空间就会导致oom问题
-
-
-
-
 
 ``` java
 public static void main(String[] args) throws IOException {
