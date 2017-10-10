@@ -53,7 +53,7 @@ SparkSession sparkSession = SparkSession.builder()
 ``` 
 第二行代码：
 ``` java
-sparkSession.sparkContext().textFile("src\\main\\resources\\data.txt",1);
+RDD lines = sparkSession.sparkContext().textFile("src\\main\\resources\\data.txt",1);
 ```
 
 
