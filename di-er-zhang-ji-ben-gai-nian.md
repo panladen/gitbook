@@ -8,11 +8,13 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 ## Cluster运行模式的具体实现
 ### 1. 物理部署的组成部分
 * **_Driver Program_**: 
-Spark应用的主函数，其主要作用：
+Spark应用的主函数，是spark应用的master，其主要作用：
 1) 创建SparkContext;
 2) 向**Cluster Manager**申请资源
 3) 管理Executor和Task的运行
 4) 接收Executor的处理结果，比如rdd的```collect()```
+
+> 注
 
 * **_Cluster Manager_**: <br>
 
