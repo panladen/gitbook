@@ -56,7 +56,7 @@ SparkSession sparkSession = SparkSession.builder()
 RDD lines = sparkSession.sparkContext().textFile("src\\main\\resources\\data.txt",1);
 ```
 第三行代码：通过```flatMapToPair```生成PairRDD，然后使用```reduceByKey```对单词进行count计算。SparkScheduleManager根据RDD的Transformation和Action动作之间的关系创建DAG，如下图所示：
-
+![](/assets/DAG.jpg)
 ``` java
 lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
     if(line == null) return null;
