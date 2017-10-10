@@ -1,12 +1,12 @@
-## Job
+## 1. Job
 A parallel computation consisting of multiple tasks that gets spawned in response to a Spark action.**A job is triggered by an action.**
 一个Job就是由一个RDD的action动作触发。比如例子中RDD的```foreach()```。SparkContext才会创建一个Job，有DAGScheduler查分成Stage,Stage又被细化成Task，提交给Executor执行。
 ![](/assets/job.jpg)
-## Stage
+## 2. Stage
 Each job gets divided into smaller sets of tasks called stages that depend on each other.
 从字面意思可以理解stage其实是一些可以在本机执行的task的集合，并且Stage之间是相互依赖的
 ，一个stage里面的所有Task都是可以不依赖其他机器上的RDD数据独立运行的，比如```map()```,```flatmap()```这样的transformation。
-### 1. Stage的划分（来自网络）
+### 2.1 Stage的划分（来自网络）
 stage的划分是Spark作业调度的关键一步，它基于DAG确定依赖关系，借此来划分stage，将依赖链断开，每个stage内部可以并行运行，整个作业按照stage顺序依次执行，最终完成整个Job。实际应用提交的Job中RDD依赖关系是十分复杂的，依据这些依赖关系来划分stage自然是十分困难的，Spark此时就利用了前文提到的依赖关系，调度器从DAG图末端出发，逆向遍历整个依赖关系链，遇到ShuffleDependency（宽依赖关系的一种叫法）就断开，遇到NarrowDependency就将其加入到当前stage。stage中task数目由stage末端的RDD分区个数来决定，RDD转换是基于分区的一种粗粒度计算，一个stage执行的结果就是这几个分区构成的RDD。[Spark作业调度中stage的划分](https://wongxingjun.github.io/2015/05/25/Spark%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E4%B8%ADstage%E7%9A%84%E5%88%92%E5%88%86/)
 
 ![](/assets/stageDivide.jpg)
