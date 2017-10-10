@@ -8,3 +8,6 @@ RDD(Resilient Distributed Dataset)弹性分布式数据集，是Spark中的抽�
 List<Integer> data = Arrays.asList(1, 2, 3, 4, 5);
 new JavaSparkContext(sparkSession.sparkContext()).parallelize(data);
 ```
+
+### 2.2 从外部数据集加载
+ 
