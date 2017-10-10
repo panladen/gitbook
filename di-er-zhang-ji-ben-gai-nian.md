@@ -51,11 +51,28 @@ SparkSession sparkSession = SparkSession.builder()
                 .master("local")
                 .getOrCreate();
 ``` 
-第二行代码：
+第二行代码：从文件中加载数据，创建RDD
 ``` java
 RDD lines = sparkSession.sparkContext().textFile("src\\main\\resources\\data.txt",1);
 ```
-
-
+第三行代码：通过```flatMapToPair```生成PairRDD，然后使用```reduceByKey```对单词进行count计算。SparkScheduleManager根据RDD的Transformation和Action动作之间的关系创建DAG，如下图所示：
+![](/assets/DAG.jpg)
+``` java
+lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
+    if(line == null) return null;
+    List<Tuple2> result = new ArrayList<>();
+    String lineStr = String.valueOf(line);
+    String[] words = lineStr.split(" ");
+    for(String word : words){
+        result.add(new Tuple2(word,1));
+    }
+    return result.iterator();
+}).reduceByKey((Function2) (v1, v2) -> {
+    Integer c1 = (Integer) v1;
+    Integer c2 = (Integer) v2;
+    return c1 + c2;
+}).foreach((VoidFunction) tuple -> System.out.println(tuple.toString()));
+```
+由于Spark DAG的运行模式为[Lazy Evaluation](http://data-flair.training/blogs/apache-spark-lazy-evaluation/),一直到SparkScheduleManager发现RDD的action操作时候才会创建一个job提交给Executor执行。
 
 
