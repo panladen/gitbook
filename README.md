@@ -1,4 +1,4 @@
-# spark 历史
+# Spark和MapReduce对比
 
 ## MapReduce原理
 ![MapReduce原理图](/assets/mapreduce.jpg "MapReduce原理图")                    
