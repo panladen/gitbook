@@ -13,12 +13,13 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 2) 向**Cluster Manager**申请资源<br>
 3) 将一个Spark应用转换成DAG，调度和管理Task的运行<br>
 4) 接收Executor的处理结果，比如rdd的```collect()```
-* **_Cluster Manager_**: 集群资源管理器，如YARN,Mesos等。
+* **_Cluster Manager_**: 集群资源管理器，如YARN,Mesos等，主要负责资源管理、job运行及监控
 * **_Executor_**: Spark负责运行spark应用的task的JVM进程。
 
 > **注：** 如果executor返回的数据结果超过driver机器可申请的最大内存空间就会导致oom问题
 
-### 2. 
+### 2. 运行流程
+结合WordCount，分析一下一个Spark应用的具体运行流程，代码如下：
 ``` java
 public static void main(String[] args) throws IOException {
         SparkSession sparkSession = SparkSession.builder()
@@ -44,8 +45,12 @@ public static void main(String[] args) throws IOException {
 }
 ```
 
-
-
-
+第一代码
+``` java
+        SparkSession sparkSession = SparkSession.builder()
+                .appName("SparkSQL")
+                .master("local")
+                .getOrCreate();
+```
 
 
