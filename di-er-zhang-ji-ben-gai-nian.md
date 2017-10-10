@@ -47,10 +47,7 @@ public static void main(String[] args) throws IOException {
 
 第一代码
 ``` java
-        SparkSession sparkSession = SparkSession.builder()
-                .appName("SparkSQL")
-                .master("local")
-                .getOrCreate();
+sadf
 ```
 
 
