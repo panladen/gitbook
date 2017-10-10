@@ -1,9 +1,10 @@
 ## 运行模式
 
-
-```java
-
-
+``` java
+public static void main(String[] args) throws IOException {
+}
 ```
+
+
 
 
