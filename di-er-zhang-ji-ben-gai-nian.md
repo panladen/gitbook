@@ -3,10 +3,11 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 * local模式：主要用在IDE中进行开发和调试用
 * standalone：单机模式，适合集群规模较小的job
 * cluster模式：集群模式（YARN，Mesos）
+
 ![cluster模式](/assets/cluster-overview.png "cluster模式")
 
 ## Cluster运行模式的具体实现
-### 1. 物理部署的组成
+### 1. 物理节点的组成
 
 * **_Driver Program_**: Spark应用的主函数，是spark应用的master，其主要作用：<br>
 1) 创建SparkContext;<br>
@@ -44,7 +45,7 @@ public static void main(String[] args) throws IOException {
         }).foreach((VoidFunction) tuple -> System.out.println(tuple.toString()));
 }
 ```
-第一行代码：创建SparkSession/SparkContext
+第一行代码：创建SparkSession/SparkContext，并且指明运行模式为local
 ``` java
 SparkSession sparkSession = SparkSession.builder()
                 .appName("SparkSQL")
