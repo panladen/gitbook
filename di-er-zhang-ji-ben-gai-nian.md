@@ -1,5 +1,8 @@
 ## 运行模式
-
+spark目前支持的运行模式有：local,standalone,cluster，可以通过在创建***SparkSession***或者***SparkContext***的时候通过```master()```函数指定。
+* local模式<br>
+主要用在IDE中进行开发和调试用
+    
 ``` java
 public static void main(String[] args) throws IOException {
         SparkSession sparkSession = SparkSession.builder()
@@ -24,7 +27,6 @@ public static void main(String[] args) throws IOException {
         }).foreach((VoidFunction) tuple -> System.out.println(tuple.toString()));
 }
 ```
-
 
 
 
