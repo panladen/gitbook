@@ -56,7 +56,7 @@ SparkSession sparkSession = SparkSession.builder()
 ``` java
 RDD lines = sparkSession.sparkContext().textFile("src\\main\\resources\\data.txt",1);
 ```
-第三行代码：通过```flatMapToPair```生成PairRDD，然后使用```reduceByKey```对单词进行count计算。SparkScheduleManager根据RDD的Transformation和Action动作之间的关系创建DAG，如下图所示：
+第三行代码：通过```flatMapToPair```生成PairRDD，然后使用```reduceByKey```对单词进行count计算。SparkContext根据RDD的Transformation和Action动作之间的关系创建DAG，如下图所示：
 ![](/assets/DAG.jpg)
 ``` java
 lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
@@ -74,6 +74,7 @@ lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
     return c1 + c2;
 }).foreach((VoidFunction) tuple -> System.out.println(tuple.toString()));
 ```
-由于Spark DAG的运行模式为[Lazy Evaluation](http://data-flair.training/blogs/apache-spark-lazy-evaluation/),一直到SparkScheduleManager发现RDD的action操作时候才会创建一个job提交给Executor执行。
-
+* 由于Spark DAG的运行模式为[Lazy Evaluation](http://data-flair.training/blogs/apache-spark-lazy-evaluation/),一直到SparkContext遇到RDD的action操作时候才会将DAG提交给DAGScheduler。
+* DAGSchedule会根据一定的规则（宽依赖，窄依赖）将DAG拆分成若干个Stage，并提交给TaskScheduler
+* TaskScheduler会调度这些Task在集群上运行，并且监控其运行状态。
 
