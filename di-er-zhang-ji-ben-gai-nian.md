@@ -1,13 +1,16 @@
 ## 运行模式
-spark目前支持的运行模式有：local,standalone,cluster，可以通过在创建***SparkSession***或者***SparkContext***的时候通过```master()```函数指定。
+spark目前支持的运行模式有：local,standalone,cluster，可以通过在创建**SparkSession**或者**SparkContext**的时候通过```master()```函数指定。
 * local模式：主要用在IDE中进行开发和调试用
 * standalone：单机模式，适合集群规模较小的job
 * cluster模式：集群模式（YARN，Mesos）
 ![cluster模式](/assets/cluster-overview.png "cluster模式")
 
 ## Cluster运行模式的具体实现
-### 物理部署的组成部分
-* Driver Program: 
+### 1. 物理部署的组成部分
+* ___Driver Program___: <br>
+每个Spark应用的主函数，其主要作用：1)创建SparkContext; 2)向**Cluster Manager**申请资源 3)接收Executor的处理结果，比如rdd的```collect()```
+* ___Cluster Manager___: <br>
+
 
 
 ``` java
