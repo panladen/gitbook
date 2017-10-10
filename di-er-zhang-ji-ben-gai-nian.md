@@ -4,7 +4,12 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 * standalone：单机模式，适合集群规模较小的job
 * cluster模式：集群模式（YARN，Mesos）
 ![cluster模式](/assets/cluster-overview.png "cluster模式")
-    
+
+## Cluster运行模式的具体实现
+### 基本概念
+* Driver: 
+
+
 ``` java
 public static void main(String[] args) throws IOException {
         SparkSession sparkSession = SparkSession.builder()
