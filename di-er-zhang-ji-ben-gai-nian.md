@@ -44,10 +44,18 @@ public static void main(String[] args) throws IOException {
         }).foreach((VoidFunction) tuple -> System.out.println(tuple.toString()));
 }
 ```
-
-第一代码
+第一行代码：创建SparkSession/SparkContext
 ``` java
-sadf
+SparkSession sparkSession = SparkSession.builder()
+                .appName("SparkSQL")
+                .master("local")
+                .getOrCreate();
+``` 
+第二行代码：
+``` java
+sparkSession.sparkContext().textFile("src\\main\\resources\\data.txt",1);
 ```
+
+
 
 
