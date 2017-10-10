@@ -14,6 +14,9 @@ stage的划分是Spark作业调度的关键一步，它基于DAG确定依赖关�
 其中涉及两个重要概念：
 * 窄依赖: 父RDD的分区最多只会被子RDD的一个分区使用，比如map、filter、union
 * 宽依赖: 父RDD的一个分区会被子RDD的多个分区使用，比如groupByKey、join
-### 2.2 stage分类
 
-## 3. 
+### 2.2 stage分类 （来自网络）
+* ShuffleMapTask，shuffle之前是一个stage，shuffle之后的操作是另一个stage
+* resultTask，RDD的action中并不需要shuffle，直接输出（show,foreach）创建的stage为resultTask
+
+## 3.
