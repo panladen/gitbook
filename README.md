@@ -20,4 +20,8 @@
 * API接口不够丰富。
 
 ## Spark的优势
-
+* 支持内存cache，适合迭代计算；
+* 每个MR的task已线程的方式launch；
+* 丰富的内置库（Streaming,SQL,MLLib,GraphX）；
+* DAG会优化执行过程，减少shuffle；
+* 容错能力，根据DAG重启失败的task，RDD生命链恢复丢失的RDD
