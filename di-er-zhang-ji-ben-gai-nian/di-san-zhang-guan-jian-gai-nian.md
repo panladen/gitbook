@@ -14,3 +14,6 @@ stage的划分是Spark作业调度的关键一步，它基于DAG确定依赖关�
 其中涉及两个重要概念：
 * 窄依赖: 父RDD的分区最多只会被子RDD的一个分区使用，比如map、filter、union
 * 宽依赖: 父RDD的一个分区会被子RDD的多个分区使用，比如groupByKey、join
+### 2.2 stage分类
+
+## 3. 
