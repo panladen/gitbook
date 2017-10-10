@@ -12,7 +12,7 @@ Spark应用的主函数，其主要作用：<br>
 1)创建SparkContext; <br>
 2)向**Cluster Manager**申请资源 <br>
 3)管理Executor和Task的运行
-3)接收Executor的处理结果，比如rdd的```collect()```
+4)接收Executor的处理结果，比如rdd的```collect()```
 * **_Cluster Manager_**: <br>
 
 
