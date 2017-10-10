@@ -6,7 +6,7 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 ![cluster模式](/assets/cluster-overview.png "cluster模式")
 
 ## Cluster运行模式的具体实现
-### 1. 物理部署的组成部分
+### 1. 物理部署的组成
 
 * **_Driver Program_**: Spark应用的主函数，是spark应用的master，其主要作用：<br>
 1) 创建SparkContext;<br>
@@ -18,6 +18,7 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 
 > **注：** 如果executor返回的数据结果超过driver机器可申请的最大内存空间就会导致oom问题
 
+### 2. 
 ``` java
 public static void main(String[] args) throws IOException {
         SparkSession sparkSession = SparkSession.builder()
