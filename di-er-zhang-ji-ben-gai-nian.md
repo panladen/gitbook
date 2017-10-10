@@ -6,8 +6,8 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 ![cluster模式](/assets/cluster-overview.png "cluster模式")
 
 ## Cluster运行模式的具体实现
-### 基本概念
-* Driver: 
+### 物理部署的组成部分
+* Driver Program: 
 
 
 ``` java
