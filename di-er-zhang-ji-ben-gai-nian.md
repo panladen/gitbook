@@ -1,4 +1,4 @@
-## 运行模式
+## Spark运行模式
 spark目前支持的运行模式有：local,standalone,cluster，可以通过在创建**SparkSession**或者**SparkContext**的时候通过```master()```函数指定。
 * local模式：主要用在IDE中进行开发和调试用
 * standalone：单机模式，适合集群规模较小的job
@@ -8,17 +8,16 @@ spark目前支持的运行模式有：local,standalone,cluster，可以通过在
 ## Cluster运行模式的具体实现
 ### 1. 物理部署的组成部分
 
-* **_Driver Program_**: 
-Spark应用的主函数，是spark应用的master，其主要作用：<br>
+* **_Driver Program_**: Spark应用的主函数，是spark应用的master，其主要作用：<br>
 1) 创建SparkContext;<br>
 2) 向**Cluster Manager**申请资源<br>
-3) 管理Executor和Task的运行<br>
+3) 将一个Spark应用转换成DAG，调度和管理Task的运行<br>
 4) 接收Executor的处理结果，比如rdd的```collect()```
 
-> **注：**
+> **注：** Driver发送如果executor返回的数据结果超过driver机器可申请的最大内存空间就会导致oom问题
 
-
-* **_Cluster Manager_**: <br>
+* **_Cluster Manager_**: 集群资源管理器，如YARN,Mesos等。
+* **_Executor_**: Spark负责运行spark应用的task的JVM进程。
 
 
 
