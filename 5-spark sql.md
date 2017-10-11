@@ -1,1 +1,1 @@
-{% hint style='working' %}Important info: this note needs to be highlighted{% endhint %}
+{% hint style='danger' %}Important info: this note needs to be highlighted{% endhint %}
