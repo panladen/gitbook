@@ -62,3 +62,14 @@ Spark Transformation的主要功能是基于一个RDD执行操作后生成另一
 
 ## 4. RDD持久化
 我们都知道Spark是一种专门针对大数据的计算框架，尤其是迭代计算方面的性能优势更为突出。那么迭代计算中数据集的重复计算又是最为重要的，所以针对这一需求，RDD提供了```cache()```和```persist(StorageLevel)```及可以将RDD缓存在内存空间或者Disk中。
+* **cache()**：将RDD数据缓存在内存空间，当内存空间不足的时候会部分数据溢出存储到磁盘（spill data to disk）。
+* **persist(StorageLevel)**：可以根据RDD的具体使用情况指定持久化的方式，其中StorageLevel主要支持以下模式：<br>
+<ul>
+<li>MEMORY_ONLY</li>
+<li>MEMORY_AND_DISK</li>
+<li>MEMORY_ONLY_SER</li>
+<li>MEMORY_AND_DISK_SER</li>
+<li>DISK_ONLY</li>
+<li>MEMORY_ONLY_2</li>
+<li>MEMORY_AND_DISK_2</li>
+</ul>
