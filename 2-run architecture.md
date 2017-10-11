@@ -83,7 +83,4 @@ lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
 ```{mermaid}
 graph TD
   开始-->创建SparkContext
-  A-->C
-  B-->D
-  C-->D
 ```
