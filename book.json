@@ -1,7 +1,7 @@
 {
     "title": "Spark Learning",
     "author":"Felix Pan",
-    "plugins": ["mermaid-atom-mden","image-captions","hints"],
+    "plugins": ["mermaid","image-captions","hints"],
     "pluginsConfig": {
       "image-captions": {
           "caption": "Image - _CAPTION_"
