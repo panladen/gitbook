@@ -61,3 +61,4 @@ Spark Transformation的主要功能是基于一个RDD执行操作后生成另一
 如果说Transformation是将一个RDD转换成另一个RDD的话，那么action就是对RDD数据集中的数据进行计算并且得到相应的结果。Action执行后的结果会从Executor中发送到Drive节点。常见的action有：count()，collect()，take(n)，foreach()等。
 
 ## 4. RDD持久化
+我们都知道Spark是一种专门针对大数据的计算框架，尤其是迭代计算方面的性能优势更为突出。
