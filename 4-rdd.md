@@ -16,6 +16,7 @@ Spark支持的外部数据集有本地文件、HDFS、HBase、JDBC等等。可�
 ``` java
 sparkSession.read().json("path/of/json/file").rdd();
 ```
+
 * hive的orc文件中加载RDD
 ``` java
 sparkSession.read().orc("path/of/orc/file").rdd();
