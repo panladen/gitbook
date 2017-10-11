@@ -50,10 +50,11 @@ lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
 ## 3. RDD的操作
 RDD支持两种操作类型，分别是**Transformation**和**Action**。
 ### 3.1 Transformation
-Spark Transformation的主要功能是基于一个RDD执行操作后生成另一个RDD，在执行transformation转换的时候，RDD本身并没有发生变化。只是会在RDD的lineage记录这些操作。Transformation可以根据RDD变换前后的依赖关系分为**Narrow transformation**和**Wide transformation**。
+Spark Transformation的主要功能是基于一个RDD执行操作后生成另一个RDD。在执行transformation转换的时候，RDD本身并没有发生变化。只是会在RDD的lineage记录这些操作。Transformation可以根据RDD变换前后的依赖关系分为**Narrow transformation**和**Wide transformation**。
 * 窄转换（Narrow Transformation）<br>
 窄转换操作后的RDD（子RDD）中的每条记录只依赖父RDD中一个单独partition中的数据，比如map，flatMap，filter等；
 * 宽转换（Wide Transformation）<br>
 宽转换操作后的RDD（子RDD）中的记录可能需要依赖父RDD中多个partion中的数据，比如distinct，join，groupByKey等。
 
 ### 3.2 Action
+如果说Transformation是将一个RDD转换成另一个RDD的话，那么action就是对RDD数据集中的数据进行计算并且得到相应的结果。Action执行后的结果会从Executor中发送到Drive节点。常见的action有：count()，collect()，take(n)，foreach()等。
