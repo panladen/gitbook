@@ -45,5 +45,6 @@ lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
     }
     return result.iterator();
 });
-
 ```
+
+## 3. RDD持久化
