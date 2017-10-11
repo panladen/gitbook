@@ -48,4 +48,6 @@ lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
 ```
 
 ## 3. RDD的操作
-RDD支持两种操作类型，分别是**Transformation**和**Actions**
+RDD支持两种操作类型，分别是**Transformation**和**Actions**。
+### 3.1 Transformation
+
