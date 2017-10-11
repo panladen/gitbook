@@ -82,5 +82,5 @@ lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
 * TaskScheduler会调度这些Task在集群上运行，并且监控其运行状态。
 ```{mermaid}
 graph TD
-  开始-->创建SparkContext
+  开始-->创建SparkContext  
 ```
