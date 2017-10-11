@@ -81,6 +81,7 @@ lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
 * DAGSchedule会根据一定的规则（宽依赖，窄依赖）将DAG拆分成若干个Stage，并提交给TaskScheduler
 * TaskScheduler会调度这些Task在集群上运行，并且监控其运行状态。
 
+```
 {% mermaid %}
 graph TD;
   A-->B;
@@ -88,4 +89,4 @@ graph TD;
   B-->D;
   C-->D;
 {% endmermaid %}
-
+````
