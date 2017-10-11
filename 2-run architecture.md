@@ -80,7 +80,8 @@ lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
 * 由于Spark RDD的运行模式为[Lazy Evaluation](http://data-flair.training/blogs/apache-spark-lazy-evaluation/),一直到SparkContext遇到RDD的action操作时候才会将DAG提交给DAGScheduler。
 * DAGSchedule会根据一定的规则（宽依赖，窄依赖）将DAG拆分成若干个Stage，并提交给TaskScheduler
 * TaskScheduler会调度这些Task在集群上运行，并且监控其运行状态。
+
 ```{mermaid}
-graph TD
+graph LR
   开始-->创建SparkContext  
 ```
