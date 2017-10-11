@@ -10,10 +10,16 @@ new JavaSparkContext(sparkSession.sparkContext()).parallelize(data);
 ```
 
 ### 2.2 从外部数据集加载
-Spark支持的外部数据集有本地文件、HDFS、HBase、JDBC等等。
-> **注** textFile()加载本地文件的时候，必须保证Drive节点和Work节点的相同目录下面包含文件
+Spark支持的外部数据集有本地文件、HDFS、HBase、JDBC等等。可以通过```SparkSession.read()```函数获取```DataFrameReader```实例，从而获取非常丰富的文件记载API。
 
 * json文件中加载RDD
 ``` java
 sparkSession.read().json("path/of/json/file").rdd();
 ```
+* hive的orc文件中加载RDD
+``` java
+sparkSession.read().orc("path/of/orc/file").rdd();
+```
+
+> **注** textFile()加载本地文件的时候，必须保证Drive节点和Work节点的相同目录下面包含文件
+
