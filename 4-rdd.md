@@ -2,7 +2,11 @@
 RDD(Resilient Distributed Dataset)弹性分布式数据集，是Spark中的抽象数据结构类型。任何数据在Spark中都被表示为RDD，从编程角度来看，RDD可以简单的看成一个分布式数组。所以Spark应用可以被看成是，把需要处理的数据转换成RDD，然后对RDD进行一系列的变换和操作从而得到结果。
 ![](/assets/Spark.png)
 ### 1.1 RDD的特点
-
+* **内存存储（In-memory）**：RDD所有的数据进行**计算时**都是存储在内存空间的,内存空间不足的情况下会_**spill data to disk**_ 详情见[Saprk FAQ](https://spark.apache.org/faq.html);
+* **不可变的（Immutable）**：RDD一旦创建好，就不能再变化数据集中的数据；
+* **分布式存储（Distributed）**：RDD创建的时候可以指定partitions，在集群模式下分成多少个partition；
+* **可容错的（Fault Tolerance）**：RDD是有一个_data lineage_的概念，可以根据数据血统，找到其parent RDD进行再计算；
+* **延迟计算（Lazy Evaluation）**：RDD只要在执行action的时候才会正在的进行计算
 
 ## 2. RDD的创建
 ### 2.1 Parallelized collection
