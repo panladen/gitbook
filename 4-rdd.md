@@ -11,4 +11,4 @@ new JavaSparkContext(sparkSession.sparkContext()).parallelize(data);
 
 ### 2.2 从外部数据集加载
 Spark支持的外部数据集有本地文件、HDFS、HBase、JDBC等等。
-> **注** textFile()加载本地文件的时候，必须保证Drive节点
+> **注** textFile()加载本地文件的时候，必须保证Drive节点和Work节点的相同目录下面包含响应的数据
