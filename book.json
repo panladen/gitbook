@@ -1,4 +1,5 @@
 {
     "title": "Spark Learning",
-    "author":"Felix Pan"
+    "author":"Felix Pan",
+    "plugins": ["mermaid-atom-mden"]
 }
