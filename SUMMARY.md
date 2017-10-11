@@ -1,7 +1,7 @@
 # Summary
 
 * [1. Spark VS. MapReduce](README.md)
-* [2. Spark run architecture](di-er-zhang-ji-ben-gai-nian.md)
-* [3. Key concept](di-er-zhang-ji-ben-gai-nian/di-san-zhang-guan-jian-gai-nian.md)
+* [2. Spark run architecture](2-run architecture.md)
+* [3. Key concept](3-key concept.md)
 * [4. Deep in RDD](4-rdd.md)
 
