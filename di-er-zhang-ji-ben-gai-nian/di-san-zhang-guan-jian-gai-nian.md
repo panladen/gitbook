@@ -19,6 +19,8 @@ stage的划分是Spark作业调度的关键一步，它基于DAG确定依赖关�
 * **ShuffleMapStage**，shuffle之前是一个stage，shuffle之后的操作是另一个stage
 * **ResultStage**，RDD的action中并不需要shuffle，直接输出（show,foreach）创建stage
 
+## 4. SparkContext
+
 ## 3. Task
 A unit of work that will be sent to one executor.
 Task是数据处理的真正执行单元，会被分配给executor去执行。一个RDD有多少个partition就会有多少个task。每个Task只会处理一个partition上面的数据。
