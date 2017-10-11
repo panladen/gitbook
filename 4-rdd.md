@@ -28,7 +28,7 @@ sparkSession.read().orc("path/of/orc/file").rdd();
 > **注** textFile()加载本地文件的时候，必须保证Drive节点和Work节点的相同目录下面包含文件
 
 ### 2.3 基于其他RDD创建
-RDD提供了非常丰富的transformation，可以从一个RDD经过自定义的操作生成一个新的RDD。并且原来的RDD
+RDD提供了非常丰富的transformation，可以从一个RDD经过自定义的操作生成一个新的RDD。并且原来的RDD并没有发生变化
 ``` java
 RDD lines = sparkSession.sparkContext().textFile("src\\main\\resources\\data.txt",1);
 lines.toJavaRDD().flatMapToPair((PairFlatMapFunction) line -> {
