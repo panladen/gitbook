@@ -20,7 +20,7 @@ stage的划分是Spark作业调度的关键一步，它基于DAG确定依赖关�
 * **ResultStage**，RDD的action中并不需要shuffle，直接输出（show,foreach）创建stage
 
 ## 4. SparkContext
-
+SparkContext作为Spark应用的入口，能够连接spark应用和集群。通过SparkContext能够创建RDD、累加器（accumulator）、广播全局变量（broadcast variables）。在Spark 2.0之前的版本所有的spark应用都必须首先创建**SparkContext**，**SqlContext**或者**SQLContext**是Spark SQL的入口，**StreamingContext**是Spark Streaming的入口。在Spark 2.X版本中引入<span style='color:red;'>SparkSeesion</span>
 ## 3. Task
 A unit of work that will be sent to one executor.
 Task是数据处理的真正执行单元，会被分配给executor去执行。一个RDD有多少个partition就会有多少个task。每个Task只会处理一个partition上面的数据。
