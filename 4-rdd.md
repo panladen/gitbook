@@ -15,5 +15,5 @@ Spark支持的外部数据集有本地文件、HDFS、HBase、JDBC等等。
 
 * json文件中加载RDD
 ``` java
-
+sparkSession.read().json("path/of/json/file").rdd();
 ```
