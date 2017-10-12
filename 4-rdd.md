@@ -30,11 +30,24 @@ sparkSession.read().orc("path/of/orc/file").rdd();
 ```
 
 * 从HBase中读取数据
-``` java
 
+``` java
+SparkSession sparkSession = SparkSession.builder()
+        .config("spark.serializer","org.apache.spark.serializer.KryoSerializer")
+        .appName("SparkSQL")
+        .master("local")
+        .getOrCreate();
+try(JavaSparkContext javaSC = new JavaSparkContext(sparkSession.sparkContext())
+){
+    Configuration configuration = HBaseConfiguration.create();
+    configuration.set(TableInputFormat.INPUT_TABLE, "MKT_DMP_RELATION_UID_V2");
+    JavaPairRDD<ImmutableBytesWritable, Result> result = javaSC.newAPIHadoopRDD(configuration, TableInputFormatImmutableBytesWritable.class, Result.class);
+}
 ```
 
-> **注** textFile()加载本地文件的时候，必须保证Drive节点和Work节点的相同目录下面包含文件
+> **注意** 
+* textFile()加载本地文件的时候，必须保证Drive节点和Work节点的相同目录下面包含文件
+* 读取HBase数据的时候需要指定Spark的序列化方式为org.apache.spark.serializer.KryoSerializer才能返回结果到Drive上
 
 ### 2.3 基于其他RDD创建
 RDD提供了非常丰富的transformation，可以从一个RDD经过自定义的操作生成一个新的RDD。并且原来的RDD并没有发生变化
