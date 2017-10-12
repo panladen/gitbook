@@ -29,6 +29,8 @@ sparkSession.read().json("path/of/json/file").rdd();
 sparkSession.read().orc("path/of/orc/file").rdd();
 ```
 
+* 从HBase中读取数据
+
 > **注** textFile()加载本地文件的时候，必须保证Drive节点和Work节点的相同目录下面包含文件
 
 ### 2.3 基于其他RDD创建
