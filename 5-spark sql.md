@@ -23,6 +23,7 @@ sparkSession.sql("SELECT collectID,source FROM statisicTab").show();
 * 指定Schema
 
 SqlContext的```applySchema```分别支持用StructType和Class来指定，我感觉用class指定更加适用。
+
 ```java
 sparkSession.sqlContext().applySchema(javaSparkcontext.parallelize(statisticList),StatisticResult.class);
 ```
