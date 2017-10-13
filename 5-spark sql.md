@@ -27,3 +27,6 @@ SqlContext的```applySchema```分别支持用StructType和Class来指定，我�
 ```java
 sparkSession.sqlContext().applySchema(javaSparkcontext.parallelize(statisticList),StatisticResult.class);
 ```
+
+#### 2.2 从文件中加载
+#### 2.3 从DataSource中读取数据
