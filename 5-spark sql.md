@@ -15,9 +15,14 @@ List<StatisticResult> statisticList = Arrays.asList(
         new StatisticResult("00002", "jinritoutiao"),
         new StatisticResult("00003", "jinritoutiao")
 );
-sparkSession.createDataFrame(javaSC.parallelize(statisticList), StatisticResult.class)
+sparkSession.createDataFrame(javaSparkcontext.parallelize(statisticList), StatisticResult.class)
         .registerTempTable("statisicTab");
 sparkSession.sql("SELECT collectID,source FROM statisicTab").show();
 ```
 
 * 指定Schema
+
+SqlContext的```applySchema```分别支持用StructType和Class来指定
+```java
+sparkSession.sqlContext().applySchema(javaSparkcontext.parallelize(statisticList),StatisticResult.class);
+```
