@@ -30,6 +30,7 @@ sparkSession.sqlContext().applySchema(javaSparkcontext.parallelize(statisticList
 
 #### 2.2 从文件中加载
 可以使用```sparkSession.read()```获取DataFrameReader读取结构数据文件（json, parquet, jdbc, orc, libsvm, csv, text等）。
+
 #### 2.3 从DataSource中读取数据
 使用```HiveContext```读取hive中的数据，或者可以使用```SparkContext.newAPIHadoopRDD()```读取HBase或其他Hadoop数据。
 
