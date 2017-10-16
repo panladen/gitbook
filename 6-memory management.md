@@ -2,6 +2,17 @@
 由于drive节点的内存空间较为简单，所以主要分析一下Worker节点的内存管理。首先看一下spark的worker节点的内存分布图：
 ![内存分布](/assets/spark-memory-management.png "内存分布")
 
+主要包含三个组成部分：
+* **Resverved Memory** <br>
+这部分内存是Spark预留内存空间，主要目的是为了以后Spark后续版本使用，就目前的Spark版本中不会使用该内存空间用作cache RDD或者进行计算；
+* **User Memory** <br>
+
+
+
+Property Name|Default|Meaning
+----|------|----
+spark.memory.fraction | 0.6  | spark管理的内存空间子占比
+spark.memory.storageFraction | 0.5 | storage和execution内存非配比例
 
 
 ![](/assets/spill to disk.jpg)
