@@ -6,6 +6,8 @@ Spark SQL最主要的目的是为了处理结构化数据（structured data）�
 首先明确一点，Datasets和DataFrames在Spark 2.0之后的版本中是同一个概念。Datasets和DataFrame数据底层的实现还是RDD，只不过是在RDD的基础上加上了数据结构的描述信息。
 
 > **注** DataFrame/Dataset的操作，Spark会使用Catalyst进行优化，性能方面会比RDD要高一些，详情见[性能优势](https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html)。
+![](/assets/filter-down.png)
+上图显示了两张表join后filter的优化，从中能够看出先filter再Join的执行效率更高。
 
 ### 2. DataFrame的创建和存储
 #### 2.1 DataFrame的创建
@@ -40,3 +42,5 @@ sparkSession.sqlContext().applySchema(javaSparkcontext.parallelize(statisticList
 > **注** HiveContext是Spark本身内置的，会在drive根据当前环境变量和hive-site.xml相关信息进行初始化
 
 #### 2.2 DataFrame的存储
+##### 2.2.1 存储到Hive表中
+DataFrame可以通过```DataFrameWriter.saveAsTable(String tableName)```保存到Hive表中，
