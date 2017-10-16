@@ -5,6 +5,8 @@ Spark SQL最主要的目的是为了处理结构化数据（structured data）�
 ### 1. Datasets和DataFrames
 首先明确一点，Datasets和DataFrames在Spark 2.0之后的版本中是同一个概念。Datasets和DataFrame数据底层的实现还是RDD，只不过是在RDD的基础上加上了数据结构的描述信息。
 
+> **注** DataFrame/Dataset的操作，Spark会使用Catalyst进行优化，性能方面会比RDD要高一些。
+
 ### 2. DataFrame的创建和存储
 #### 2.1 从RDD中转换而来
 * 利用反射，指定

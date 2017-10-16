@@ -1,7 +1,7 @@
 ## Spark运行模式
 spark目前支持的运行模式有：local,standalone,cluster，可以通过在创建**SparkSession**或者**SparkContext**的时候通过```master()```函数指定。
 * local模式：主要用在IDE中进行开发和调试用
-* standalone：单机模式，适合集群规模较小的job
+* standalone模式：单机模式，适合集群规模较小的job
 * cluster模式：集群模式（YARN，Mesos）
 
 ![cluster模式](/assets/cluster-overview.png "cluster模式")
