@@ -5,10 +5,11 @@ Spark SQL最主要的目的是为了处理结构化数据（structured data）�
 ### 1. Datasets和DataFrames
 首先明确一点，Datasets和DataFrames在Spark 2.0之后的版本中是同一个概念。Datasets和DataFrame数据底层的实现还是RDD，只不过是在RDD的基础上加上了数据结构的描述信息。
 
-> **注** DataFrame/Dataset的操作，Spark会使用Catalyst进行优化，性能方面会比RDD要高一些。
+> **注** DataFrame/Dataset的操作，Spark会使用Catalyst进行优化，性能方面会比RDD要高一些，详情见[性能优势](https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html)。
 
 ### 2. DataFrame的创建和存储
-#### 2.1 从RDD中转换而来
+#### 2.1 DataFrame的创建
+##### 2.1.1 从RDD中转换而来
 * 利用反射，指定
 
 ``` java
@@ -30,12 +31,12 @@ SqlContext的```applySchema```分别支持用StructType和Class来指定，我�
 sparkSession.sqlContext().applySchema(javaSparkcontext.parallelize(statisticList),StatisticResult.class);
 ```
 
-#### 2.2 从文件中加载
+##### 2.1.2 从文件中加载
 可以使用```sparkSession.read()```获取DataFrameReader读取结构数据文件（json, parquet, jdbc, orc, libsvm, csv, text等）。
 
-#### 2.3 从DataSource中读取数据
+##### 2.1.3 从DataSource中读取数据
 使用```HiveContext```读取hive中的数据，或者可以使用```SparkContext.newAPIHadoopRDD()```读取HBase或其他Hadoop数据。
 
-> **注** HiveContext是Spark本身内置的，会在drive根据当前环境变量和hive-site.xml相关信息进行初始化。
+> **注** HiveContext是Spark本身内置的，会在drive根据当前环境变量和hive-site.xml相关信息进行初始化
 
-
+#### 2.2 DataFrame的存储
