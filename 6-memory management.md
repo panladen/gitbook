@@ -10,8 +10,11 @@
 * **Spark Memory** <br>
 这部分内存空间由Spark管理，主要用于RDD的持久化和计算，所以分为两个部分：
 <ul>
-<li>
-* **Storage Memory**<br>
+<li>**Storage Memory**<br>
+在RDD的```cache()```和```persist(StorageLevel level)```时，保存RDD数据。包括broadcast数据也是存储在该区域。当内存空间不足的时候，Spark会触发spill to disk将数据存储到磁盘中。
+</li>
+<li>**Execution Memory**<br>
+在RDD的计算过程中存储中间结果，比如shuffle intermediate buffer。在内存空间不足
 </li>
 </ul>
 
