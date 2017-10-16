@@ -1,5 +1,6 @@
 ## Spark内存管理
 由于drive节点的内存空间较为简单，所以主要分析一下Worker节点的内存管理。首先看一下spark的worker节点的内存分布图：
+![内存分布](/assets/spark-memory-management.png "内存分布")
 
 
 
