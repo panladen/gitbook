@@ -10,7 +10,9 @@
 * **Spark Memory** <br>
 这部分内存空间由Spark管理，主要用于RDD的持久化和计算，所以分为两个部分：
 <ul>
-
+<li>
+* **Storage Memory**<br>
+</li>
 </ul>
 
 
