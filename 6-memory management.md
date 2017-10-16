@@ -8,7 +8,10 @@
 * **User Memory** <br>
 这部分内存是用户的JVM线程在计算过程中用于存储；
 * **Spark Memory** <br>
+这部分内存空间由Spark管理，主要用于RDD的持久化和计算，所以分为两个部分：
+<ul>
 
+</ul>
 
 
 Property Name|Default|Meaning
