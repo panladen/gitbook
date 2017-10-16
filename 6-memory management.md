@@ -19,6 +19,8 @@
 </ul>
 ![](/assets/spill to disk.jpg)
 ![](/assets/evict lru.jpg)
+在Spark1.6之前的内存管理模式为静态内存管理，即每部分的内存空间是固定的，到达阈值后全部写入磁盘。**Spark 1.6之后引入了统一内存管理机制，区别在于，可以动态的占用对方空闲的内存区域。**
+![](/assets/unit manager.jpg)
 
 三部分内存空间的划分可以通过下表中的两个参数配置：
 
