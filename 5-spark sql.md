@@ -43,4 +43,6 @@ sparkSession.sqlContext().applySchema(javaSparkcontext.parallelize(statisticList
 
 #### 2.2 DataFrame的存储
 ##### 2.2.1 存储到Hive表中
-DataFrame可以通过```DataFrameWriter.saveAsTable(String tableName)```保存到Hive表中，
+DataFrame可以通过```DataFrameWriter.saveAsTable(String tableName)```保存到Hive表中（表不存在会自动创建表），还可以使用```DataFrameWriter.partitionBy```指明分区字段。
+
+#### 2.2.2 存储到其他文件格式中
