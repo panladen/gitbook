@@ -6,6 +6,8 @@
 * **Resverved Memory** <br>
 这部分内存是Spark预留内存空间，主要目的是为了以后Spark后续版本使用，就目前的Spark版本中不会使用该内存空间用作cache RDD或者进行计算；
 * **User Memory** <br>
+这部分内存是用户的JVM线程在计算过程中用于存储；
+* **Spark Memory** <br>
 
 
 
