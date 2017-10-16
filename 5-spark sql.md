@@ -46,3 +46,4 @@ sparkSession.sqlContext().applySchema(javaSparkcontext.parallelize(statisticList
 DataFrame可以通过```DataFrameWriter.saveAsTable(String tableName)```保存到Hive表中（表不存在会自动创建表），还可以使用```DataFrameWriter.partitionBy```指明分区字段。
 
 #### 2.2.2 存储到其他文件格式中
+通过```DataFrameWriter.format()```指定保存的文件格式，可以将DataFrame保存到txt,json,orc等文件中。
