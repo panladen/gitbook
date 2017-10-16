@@ -14,19 +14,17 @@
 在RDD的```cache()```和```persist(StorageLevel level)```时，保存RDD数据。包括broadcast数据也是存储在该区域。当内存空间不足的时候，Spark会触发spill to disk将数据存储到磁盘中。
 </li>
 <li>**Execution Memory**<br>
-在RDD的计算过程中存储中间结果，比如shuffle intermediate buffer。在内存空间不足
+在RDD的计算过程中存储中间结果，比如shuffle intermediate buffer。在内存空间不足的时候，Spark通过触发 evict block to disk存储数据到磁盘。
 </li>
+![](/assets/spill to disk.jpg)
+![](/assets/evict lru.jpg)
 </ul>
-
 
 Property Name|Default|Meaning
 ----|------|----
 spark.memory.fraction | 0.6  | spark管理的内存空间子占比
 spark.memory.storageFraction | 0.5 | storage和execution内存非配比例
 
-
-![](/assets/spill to disk.jpg)
-![](/assets/evict lru.jpg)
 
 ## 参考文献
 [1] [Apache Spark 内存管理详解](https://www.ibm.com/developerworks/cn/analytics/library/ba-cn-apache-spark-memory-management/index.html)
