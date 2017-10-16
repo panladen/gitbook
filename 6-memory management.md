@@ -16,8 +16,6 @@
 <li>**Execution Memory**<br>
 在RDD的计算过程中存储中间结果，比如shuffle intermediate buffer。在内存空间不足的时候，Spark通过触发 evict block to disk存储数据到磁盘。
 </li>
-![](/assets/spill to disk.jpg)
-![](/assets/evict lru.jpg)
 </ul>
 
 Property Name|Default|Meaning
